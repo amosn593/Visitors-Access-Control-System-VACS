@@ -1,0 +1,58 @@
+{% extends 'visitor/base.html' %} 
+{% load static %} 
+{% block title%}Reports{%endblock title %} 
+{% block content %}
+
+<div class="container mt-2">
+  <!-- Table -->
+  <div class="container">
+    <div class="d-flex justify-content-center mt-2 mb-2">
+      <h4 class="btn btn-primary w-75">Generate CSV Reports</h4>
+    </div>
+    <div class="container mt-2">
+      <form
+        class="row mx-0 mt-4 px-5"
+        method="post"
+        action="{% url 'report_generation'%}"
+      >
+        {% csrf_token %}
+        <div class="col-md-3 mt-3">
+          <label class="" for="">Report Type</label>
+          <select class="form-select" name="report_type" type="text" required>
+            <option value="1">Visitors Reports</option>
+            <option value="2">Interns/Attachees Reports</option>
+            <option value="3">Staff Cars Reports</option>
+          </select>
+        </div>
+        <div class="col-md-3 mt-3">
+          <label class="" for="">Start Date</label>
+          <input
+            class="form-control"
+            type="date"
+            name="start_date"
+            placeholder="Start Date"
+            required
+          />
+        </div>
+        <div class="col-sm-12 col-md-3 mt-3">
+          <label class="" for="">End Date</label>
+          <input
+            class="form-control"
+            type="date"
+            name="end_date"
+            placeholder="End Date"
+            required
+          />
+        </div>
+        <div class="col-md-3 mt-3">
+          <button class="btn btn-outline-success mt-4" type="submit">
+            Generate
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Table -->
+</div>
+
+{% endblock content %}

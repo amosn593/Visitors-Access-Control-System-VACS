@@ -1,0 +1,26 @@
+{% extends "visitor/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign In" %}{% endblock title %}
+
+
+{% block content %}
+
+<div class="container login-mine mt-3">
+
+
+<h1>{% trans "Sign In" %}</h1>
+<form class="login p-3 w-80 " method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <a class="button mt-3  secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  <button class="btn btn-primary mt-3 primaryAction" type="submit">{% trans "Sign In" %}</button>
+</form>
+
+</div>
+
+{% endblock %}

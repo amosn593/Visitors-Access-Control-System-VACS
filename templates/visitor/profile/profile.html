@@ -1,0 +1,39 @@
+{% extends 'visitor/base.html' %} {% load static %} {% block title %}Home{% endblock title %} {% block content %}
+
+<div class="container mt-2">
+<!-- Table -->
+<div class="container">
+<div class="d-flex justify-content-center mt-2 mb-2">
+        <h5 class="btn btn-primary w-50">My Profile</h5>
+    </div>
+    <div class="table-responsive-md">
+        <table class="table table-striped table-bordered caption-top">
+            <thead class="table-light" style="font-size: 14px;">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">ID NO.</th>
+                    <th scope="col">Phone No.</th>
+                    <th scope="col">Email </th>
+                    <th scope="col">Staff Number</th>
+                    <th scope="col">Station</th>
+                </tr>
+            </thead>
+            <tbody style="font-size: 14px;">
+                
+                <tr>
+                    <td>{{user.profile.full_name}}</td>
+                    <td>{{user.profile.id_number}}</td>
+                    <td>{{user.profile.staff_phone}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.profile.staff_number}}</td>
+                    <td>{{user.profile.station}} </td>
+                </tr>
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Table -->
+</div>
+
+{% endblock content %}

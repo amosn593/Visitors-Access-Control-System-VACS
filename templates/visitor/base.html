@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock title %} | VACS</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Amos Ndonga" />
+    <meta name="copyright" content="2021 AMOS NDONGA" />
+    <link
+      rel="shortcut icon"
+      href="{% static 'visitor/img/favicon.ico' %}"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'visitor/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'visitor/css/styles.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'visitor/css/account.css' %}"
+    />
+  </head>
+
+  <body>
+    <!-- Page preloader -->
+    <div id="preloader"></div>
+
+    <!-- Page container -->
+    <div id="page-container">
+      <!-- top navigation bar -->
+      <div>{% include "visitor/header.html" %}</div>
+
+      <!-- top navigation bar -->
+
+      <!-- Main content -->
+      <div class="container-fluid content-wrap">
+        <div class="container">{% block content %}{% endblock content %}</div>
+      </div>
+      <!-- Main content -->
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="container">
+          <p>
+            <i class="fa fa-copyright" aria-hidden="true"></i> 2021-2022 | Amos
+            ICT SERVICES <br />
+            amosndonga@gmail.com | +254702240787
+          </p>
+        </div>
+      </footer>
+      <!-- Footer -->
+    </div>
+    <!-- Page container -->
+
+    <script src="{% static 'visitor/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'visitor/js/jquery-3.5.1.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", function() {
+          loader.style.display = "none";
+      });
+      {% if messages %}
+      {% for msg in messages%}
+      swal({
+              text: "{{msg}}",
+              icon: "{{msg.tags}}",
+          });
+      {% endfor%}
+      {% endif %}
+    </script>
+  </body>
+</html>
