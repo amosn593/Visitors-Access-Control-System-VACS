@@ -6,7 +6,7 @@ __pycache__
 db.sqlite3
 
 #Virtual env and .env
-virtualenv
+venv
 access/.env
 .env
 
