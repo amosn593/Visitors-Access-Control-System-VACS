@@ -1,6 +1,5 @@
 asgiref==3.4.1
 astroid==2.6.6
-autopep8==1.5.7
 bandit==1.7.0
 certifi==2021.5.30
 cffi==1.15.0
